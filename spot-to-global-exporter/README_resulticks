@@ -1,0 +1,74 @@
+Migration of collection from one fabric to another
+
+Extract the zip file resulticks_execs.zip, it contains two executables (import and export)
+The executables were tested on Ubuntu 20.x
+
+Prerequisites
+    CREATE collection on the destination fabric with same configuration as the the one on source fabric, and create indexes needed.
+    Run the following commands from the directory which contains the extracted executables.
+
+#export the following variables, and change them if needed accordingly
+#Federation name
+export FEDERATION=resulticks.macrometa.io
+#directory where the collection will be exported
+export COLLECTION_DATA_DIR=collection_export_data
+#source fabric
+export FABRIC_SRC=_system
+#destination fabric
+export FABRIC_DEST=TATA
+#Executable for exporting collection
+export EXPORTER_APP=./export
+#Executable for importing collection
+export IMPORTER_APP=./import
+#Tenant name
+export TENANT=techlive_resulticks.com
+
+#username
+export USERNAME=techlive@resulticks.com
+
+#password
+export $PASSWORD=password
+
+#Collection to be copied
+export COLLECTION=rs_T87_customevent
+#directory where the collection will be exported for a particular collection
+export EXPORT_DATA_DIR=$COLLECTION_DATA_DIR/$COLLECTION
+mkdir -p $EXPORT_DATA_DIR
+
+# Export data
+#The utility has options of --batch-size. By default the import in done in the batches of 25MB, please pass the value in bytes in needs to be changes
+#The utility has option of --sleep between batches, default value 1 second. 
+$EXPORTER_APP --host $FEDERATION --fabric $FABRIC_SRC --write-dir $EXPORT_DATA_DIR --collection $COLLECTION --username $USERNAME --password $PASSWORD --new-tenant $TENANT
+
+#Once the export is done, the $EXPORT_DATA_DIR collection will have the data created.
+
+# Import data
+#If the collection is local, no need to specify the "--replicate" option
+#The utility has options of --batch-size. By default the import in done in the batches of 8MB, please pass the value in bytes in needs to be changes
+#The utility has option of --sleep between batches, default value 1 second. 
+
+$IMPORTER_APP --host $FEDERATION --fabric $FABRIC_DEST --source-dir $EXPORT_DATA_DIR --new-collection $COLLECTION --username $USERNAME --password $PASSWORD --new-tenant $TENANT --replicate y
+
+
+#If due to some unforseen reason, the import call fails in between importing, the import can be done for an individual file as well using the option --file SELECTED_SINGLE_FILE
+$IMPORTER_APP --host $FEDERATION --fabric $FABRIC_DEST --file $EXPORT_DATA_DIR/rs_T87_customevent-export-04082022T182843-file-1.gz --new-collection $COLLECTION --username $USERNAME --password $PASSWORD --new-tenant $TENANT
+
+
+----------------------------------------------------------------------------
+
+In case, export and import tool is not working, we can use the python script :
+
+Install python3
+
+We have saved the related python script in this file  - "script.zip"
+Goto following location to find the python script for exporter - "/scripts/spot-to-global-exporter" - file name -  "app.py"
+Goto following location to find the python script for importer - "/scripts/spot-to-global-importer" - file name - "app.py"
+
+Please export all paths as explained on top. 
+Parameters are same as explained above. Need to run the file as given below -
+
+#exporter : 
+python3 ./app.py --host $FEDERATION --fabric $FABRIC_SRC --write-dir $EXPORT_DATA_DIR --collection $COLLECTION --username $USERNAME --password $PASSWORD --new-tenant $TENANT
+
+#importer : 
+python3 ./app.py --host $FEDERATION --fabric $FABRIC_DEST --source-dir $EXPORT_DATA_DIR --new-collection $COLLECTION --username $USERNAME --password $PASSWORD --new-tenant $TENANT --replicate y

@@ -1,14 +1,12 @@
 from c8 import C8Client
-import math
 import six
 import random
 import threading
 import base64
 import json
 
-api_key = "luka.klincarevic_macrometa.com.id1.Lx0XV13pMz97ecEnRKIu3ZxDCawaI9QjrJZo3pFot1Edbi4XXzFmlT4fC1NbGaPp692ff7"
-email = "luka.klincarevic@macrometa.com"
-password = "Malfurion123!"
+email = "[email]"
+password = "[password]"
 geo_fabric = "_system"
 host = 'gdn.paas.macrometa.io'
 
@@ -21,7 +19,7 @@ def create_subscriber():
         print(msg1) #Print the received msg over stream
         subscriber.send(json.dumps({'messageId': m1['messageId']}))#Acknowledge the received msg.
 
-client = client = C8Client(protocol='https', host=host, port=443,
+client = C8Client(protocol='https', host=host, port=443,
                     email = email, password= password,
                     geofabric=geo_fabric) 
 stream_name = "chatroom420"
@@ -39,6 +37,3 @@ while True:
         }
     producer.send(json.dumps(data))
     response =  json.loads(producer.recv())
-    
-subscriber_thread.join()
-producer.close()

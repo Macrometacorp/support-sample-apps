@@ -1,0 +1,43 @@
+from c8 import C8Client
+
+key = 'luka.klincarevic_macrometa.com.id1.Lx0XV13pMz97ecEnRKIu3ZxDCawaI9QjrJZo3pFot1Edbi4XXzFmlT4fC1NbGaPp692ff7'
+collection_name = "students"
+# Create a connection to gdn
+client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+apikey=key)
+# Create a new collection
+if client.has_collection(collection_name):
+    print("Collection exists")
+else:
+    client.create_collection_kv(name=collection_name)
+# Insert Key Value pairs
+data = [
+  {
+    "_key": "John",
+    "value": "Science",
+    "expireAt": 0
+  },
+  {
+    "_key": "Alice",
+    "value": "Maths",
+    "expireAt": 0
+  },
+  {
+    "_key": "Alex",
+    "value": "Physics",
+    "expireAt": 0
+  },
+  {
+    "_key": "Monika",
+    "value": "Chemistry",
+    "expireAt": 0
+  }
+]
+
+client.insert_key_value_pair(collection_name, data)
+# Get value for a key
+print("Value for the provided key: ",client.get_value_for_key(collection_name, "Monika"))
+# Get KV count of a collection
+print("Number of kv pairs in your collection: ",client.get_kv_count(collection_name))
+# Get fabric details
+print(client.get_fabric_details())

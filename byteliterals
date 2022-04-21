@@ -1,0 +1,22 @@
+from c8 import C8Client
+import time
+import base64
+import six
+import json
+import warnings
+warnings.filterwarnings("ignore")
+
+# Simple Way
+key = 'luka.klincarevic_macrometa.com.id1.Lx0XV13pMz97ecEnRKIu3ZxDCawaI9QjrJZo3pFot1Edbi4XXzFmlT4fC1NbGaPp692ff7'
+client = C8Client(protocol='https', host='gdn.paas.macrometa.io', port=443,
+apikey=key)
+#--------------------------------------------------------------
+
+producer = client.create_stream_producer("demostream", local=False)
+
+for i in range(10):
+      msg1 = "Persistent: Hello from " + "("+ str(i) +")"
+      data = {
+        "payload" : base64.b64encode(six.b(msg1)).decode("utf-8")
+      }
+      producer.send(json.dumps(data))

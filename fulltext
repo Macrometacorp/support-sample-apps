@@ -1,0 +1,40 @@
+from c8 import C8Client
+import string    
+import random
+
+key = "luka.klincarevic_macrometa.com.apik1.wZVdeTAPGBUV87xustX2BcCrC8igVHBTzTWTb0Vkw4SIxRrnrLxUyniQ2nH5WNfU3fb8f3"
+client = C8Client(protocol='https', host='devsuccess.eng.macrometa.io/', port=443,
+apikey=key)
+
+
+collection_name = "fulltext_test"
+document = []
+
+
+S = 10
+for i in range(100):
+        ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
+        document.append({"name" : str(ran)})
+if client.has_collection(collection_name):
+	client.insert_document(collection_name=collection_name, document=document)
+else:
+	client.create_collection(collection_name)
+	client.insert_document(collection_name= collection_name, document=document)
+
+'''sort_query = "FOR i in fulltext_test SORT i.name RETURN i.name"
+no_index_times = []
+for i in range(500):
+        start_time = time.time()
+        client.execute_query(sort_query)
+        end_time = time.time()
+        no_index_times.append(end_time - start_time)
+pd.DataFrame(np.asarray(no_index_times)).to_csv("/Users/lukaklincarevic/Documents/no_index_times.csv")
+
+client.add_fulltext_index(collection_name=collection_name, fields = ["name"], min_length = 2)
+fulltext_index_times = []
+for i in range(500):
+        start_time = time.time()
+        client.execute_query(sort_query)
+        end_time = time.time()
+        fulltext_index_times.append(end_time - start_time)
+pd.DataFrame(np.asarray(fulltext_index_times)).to_csv("/Users/lukaklincarevic/Documents/fulltext_index_times.csv")'''
