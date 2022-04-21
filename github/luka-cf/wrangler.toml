@@ -1,0 +1,8 @@
+name = "cloudflare"
+type = "javascript"
+
+account_id = "9be501632df64f1b91e8fefc1399db58"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-01-13"
