@@ -1,1 +1,1 @@
-# support-sample-appss
+# support-sample-apps
