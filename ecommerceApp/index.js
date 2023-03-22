@@ -3,16 +3,17 @@ import bodyParser from 'body-parser';
 import {userRoutes} from "./routes/user.js"
 import {productRoutes} from "./routes/product.js"
 import {orderRoutres} from "./routes/order.js"
-//import createSW from './util/createSW.js';
+import createSW from './util/createSW.js';
 import createViews from './util/createViews.js';
+import createQW from './util/createQW.js';
 
 const app = express();
-
+// setting Views, Stream Workers and QueryWorkers
 (async function(){
- const res = await createViews()
- console.log(res);
+  await createViews()
+  await createSW()
+  await createQW()
 })()
-
 
 app.use(bodyParser.json());
 
