@@ -1,8 +1,8 @@
 import getClient from "./serverAuth.js";
-const client = getClient()
-const appName= "Update_product"
-export default async function createSW(){
-    let appDefinition = `
+const client = getClient();
+const appName = "Update_product";
+export default async function createSW() {
+  let appDefinition = `
     @App:name("${appName}")
     @App:qlVersion("2")
 
@@ -13,12 +13,15 @@ CREATE SINK updateStock WITH (type='query-worker', query.worker.name="updateStoc
 INSERT INTO updateStock
 SELECT *
 FROM ordersEvents;
-    `
+    `;
 
-try {
-    await client.createStreamApp(["devsuccess-waw", "devsuccess-dfw"], appDefinition );
-    await client.activateStreamApp(appName, true)
-} catch (error) {
-    return error
-}
+  try {
+    await client.createStreamApp(
+      ["devsuccess-waw", "devsuccess-dfw"],
+      appDefinition
+    );
+    await client.activateStreamApp(appName, true);
+  } catch (error) {
+    return error;
+  }
 }
