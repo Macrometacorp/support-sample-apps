@@ -54,6 +54,9 @@ app.get("/chat", async (req, res) => {
   res.render("chat", { data: { name: name, docs: docs } });
 });
 
+app.all("*", (req, res) => {
+  res.render("404page");
+});
 const saveMsg = async function (msg) {
   const insertedDoc = await client.insertDocument(collectionAndStreamName, msg);
 };

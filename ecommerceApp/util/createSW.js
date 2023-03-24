@@ -16,8 +16,10 @@ FROM ordersEvents;
     `;
 
   try {
+    const data = await client.getAllEdgeLocations();
+    const edgeLocations = data.map((obj) => obj._key);
     await client.createStreamApp(
-      ["devsuccess-waw", "devsuccess-dfw"],
+      edgeLocations,
       appDefinition
     );
     await client.activateStreamApp(appName, true);

@@ -1,2 +1,1 @@
-ChatApp 
-Working DEMO
+ChatApp WIP / demo can be used

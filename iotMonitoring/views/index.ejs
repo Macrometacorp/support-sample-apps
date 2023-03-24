@@ -4,14 +4,13 @@
         <%- include('parts/header.ejs',{session:"Ljubisav"}) %>
             <main class="d-flex flex-nowrap">
                 <div class="container text-center p-3 ">
-                    <h1 class="text-center">Welcome to macrometa chatApp</h1>
+                    <h1 class="text-center">Welcome to Macrometa</h1>
                     <div class=" text-center p-3">
-                        <h3>Please enter your username</h3>
-                        <form class="form-inline" action="/chat" method="post">
+                        <h3>Please enter city name</h3>
+                        <form class="form-inline" action="/search" method="post" enctype="application/json">
                             <div class="input-group w-25 mx-auto text-center p-3 ">
-                                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                    aria-describedby="button-addon1" name="name" id="name" required
-                                    pattern="[A-Za-z]+" />
+                                <input type="text" class="form-control" placeholder="City" aria-label="City"
+                                    aria-describedby="bustton-addon1" name="city" id="city" required />
                                 <button class="btn btn-primary" type="submit" id="button-addon1"
                                     data-mdb-ripple-color="dark">
                                     Submit

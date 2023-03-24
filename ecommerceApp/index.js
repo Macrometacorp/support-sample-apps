@@ -6,9 +6,10 @@ import { orderRoutres } from "./routes/order.js";
 import createSW from "./util/createSW.js";
 import createViews from "./util/createViews.js";
 import createQW from "./util/createQW.js";
-
+import * as dotenv from "dotenv";
+dotenv.config();
 const app = express();
-// setting Views, Stream Workers and QueryWorkers
+// setting env
 (async function () {
   await createViews();
   await createSW();

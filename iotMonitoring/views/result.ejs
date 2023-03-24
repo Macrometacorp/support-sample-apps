@@ -1,0 +1,25 @@
+<%- include('parts/head.ejs') %>
+
+    <body class="bg-light text-dark container text-center p-3 ">
+        <%- include('parts/header.ejs',{session:"Ljubisav"}) %>
+            <main class="d-flex flex-nowrap">
+                <div class="container text-center p-3 ">
+                    <h1 class="text-center">Welcome to Macrometa</h1>
+                    <% for( let index=0; index < message.length; index++ ) { %>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Device ID: <%= message[index]._key %>
+                                </h5>
+                                <p class="card-text">Temperature: <%= message[index].temperature%>
+                                </p>
+                                <p class="card-text">Timestamp: <%= new Date(message[index].timestamp) %>
+                                </p>
+                            </div>
+                        </div>
+
+                        <% } %>
+            </main>
+            <%- include('parts/footer.ejs') %>
+    </body>
+
+    </html>
