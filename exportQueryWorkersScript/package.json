@@ -1,0 +1,15 @@
+{
+  "name": "exportqueryworkersscript",
+  "version": "1.0.0",
+  "description": "Solution for exporting RESTQL from GDN. This script will create a JSON file with all users' RESTQLs.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ljubisav",
+  "license": "ISC",
+  "dependencies": {
+    "jsc8": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}

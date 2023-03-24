@@ -1,0 +1,14 @@
+{
+  "name": "gdnversioncheckscript",
+  "version": "1.0.0",
+  "description": "This Node.js script exports the RESTqls from a Macrometa fabric and saves the data to a JSON file. The script uses the JSC8 library to connect to a Macrometa fabric and retrieve the RESTqls.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ljubisav",
+  "license": "ISC",
+  "dependencies": {
+    "jsc8": "^1.0.0"
+  }
+}

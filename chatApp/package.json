@@ -9,7 +9,7 @@
     "lint": "prettier --write ."
   },
   "keywords": [],
-  "author": "",
+  "author": "Ljubisav",
   "license": "ISC",
   "dependencies": {
     "atob": "^2.1.2",

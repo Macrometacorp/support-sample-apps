@@ -1,0 +1,14 @@
+{
+  "name": "exportgdnasjsonfilescript",
+  "version": "1.0.0",
+  "description": "exportDBtoJSON.js will export all data from fabric to two JSON files: 1. All data will be exported to data.json   \t-data.json structure will be: { collectionName:[doc1,doc2,......], collectionName2:[doc1, doc2, ......], . . . } 2. All configurations in config.json. \t-config.json structure will be: { collections:[collection configuration], indexes: [indexes configuration], graphs: [graphs configuration] restqls: [restqls configuration] }",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ljubisav",
+  "license": "ISC",
+  "dependencies": {
+    "jsc8": "^1.0.0"
+  }
+}
