@@ -1,0 +1,19 @@
+{
+  "name": "customer360",
+  "version": "1.1.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "standard && node my-tests.js"
+  },
+  "keywords": [],
+  "author": "ljubisav",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "itty-router": "^2.6.1",
+    "webcrypt-session": "^0.5.1",
+    "wrangler": "^2.11.0",
+    "zod": "^3.19.1"
+  },
+  "description": ""
+}
