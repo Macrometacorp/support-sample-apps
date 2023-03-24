@@ -19,7 +19,7 @@ The Real-time Fleet Management System aims to provide businesses with an efficie
 
 **createVehicles:**
 
-```json
+```
 INSERT {
     "name": @name,
     "type": @type,
@@ -44,7 +44,7 @@ RETURN NEW
 ```
 
 **updateVehicle:**
-```json
+```
 UPDATE @key WITH {
     "make": @make,
     "model": @model,
@@ -67,7 +67,7 @@ RETURN MERGE({ key: @key, status: "success" }, NEW)
 ```
 
 **getVehicleDetails:**
-```json
+```
 FOR vehicle IN vehicles
   FILTER vehicle._key == @key
   RETURN {
@@ -89,7 +89,7 @@ FOR vehicle IN vehicles
 ```
 
 **createRoute:**
-```json
+```
 INSERT {
     "name": @name,
     "start_location": @start_location,
@@ -121,7 +121,7 @@ RETURN MERGE({ status: "success" }, NEW)
 ```
 
 **updateRoute:**
-```json
+```
 FOR route IN routes
     FILTER route._key == @routeId
     UPDATE route WITH {
@@ -147,7 +147,7 @@ FOR route IN routes
 ```
 
 **getRouteDetails:**
-```json
+```
 FOR route IN routes
     FILTER route._key == @routeId
     RETURN {
@@ -170,7 +170,7 @@ FOR route IN routes
 ```
 
 **getAllRoutes:**
-```json
+```
 FOR route IN routes
     RETURN {
         "name": route.name,
@@ -192,7 +192,7 @@ FOR route IN routes
 ```
 
 **createGeofence:**
-```json
+```
 INSERT {
     "name": @name,
     "location": @location,
@@ -212,7 +212,7 @@ RETURN MERGE({ status: "success" }, NEW)
 ```
 
 **getGeofenceDetails:**
-```json
+```
 FOR geofence IN geofences
     FILTER geofence._key == @geofenceId
     LET vehiclesWithinBounds = (
