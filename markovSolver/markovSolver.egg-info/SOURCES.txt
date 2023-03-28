@@ -1,0 +1,9 @@
+README.md
+setup.py
+markovSolver.egg-info/PKG-INFO
+markovSolver.egg-info/SOURCES.txt
+markovSolver.egg-info/dependency_links.txt
+markovSolver.egg-info/requires.txt
+markovSolver.egg-info/top_level.txt
+solver/__init__.py
+solver/markov_solver.py
