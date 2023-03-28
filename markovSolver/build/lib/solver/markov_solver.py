@@ -76,7 +76,7 @@ def generate_edges():
                 '_key': f'node_{column + 1}-node_{i+1}',
                 '_from': f'{NODES_COLLECTION}/node_{column+i}',
                 '_to': f'{NODES_COLLECTION}/node_{i+1}',
-                'weight': i
+                'weight': j
                 }
             url = f"{HTTP_URL}/_api/document/{EDGES_COLLECTION}"
             session.post(url, data=json.dumps(payload))
