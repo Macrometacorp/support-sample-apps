@@ -5,19 +5,20 @@ collections, streams, query workers, stream workers and GEO json.
 
 ## Prerequisites
 
-Node.js installed on your machine Macrometa account
+- Node.js installed on your machine
+- Macrometa account
 
 ## Getting Started
 
-Clone the repository and navigate to the project directory.
+- Clone the repository and navigate to the project directory.
 
-Install the dependencies using the command:
+- Install the dependencies using the command:
 
 ```bash
 npm install
 ```
 
-Create a .env file in the project directory and set the following variables:
+- Create a .env file in the project directory and set the following variables:
 
 ```env
 URL = https://play.paas.macrometa.io
@@ -41,13 +42,13 @@ QUERY_NAME=<your-query-name>
 
 The server listens for POST requests to /data and /user endpoints.
 
-The /data endpoint expects JSON data containing information about the
-earthquake. This data is published to a message stream using the publishMsg
-function.
+- The /data endpoint expects JSON data containing information about the
+  earthquake. This data is published to a message stream using the publishMsg
+  function.
 
-The /user endpoint expects JSON data containing information about the user's
-location. This data is inserted into a collection using the insertDocument
-function.
+- The /user endpoint expects JSON data containing information about the user's
+  location. This data is inserted into a collection using the insertDocument
+  function.
 
 A consumer is created using the createConusmer function. This consumer reads
 data from the message stream and executes a query to find users who are near the
