@@ -1,5 +1,7 @@
 ## Aggregating Inventory Levels by Brand
 
+**Category:** This is a sample app. For this particular case, stream workers are used for real-time data extractionn and manipulation.
+
 ## Summary:
 
 The following code defines a stream worker application that aggregates the inventory levels for each brand in the 'catalog' collection and stores the results in a destination collection called 'totals'.

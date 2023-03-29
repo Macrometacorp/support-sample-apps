@@ -1,5 +1,7 @@
 ## Store Fulfillment
 
+**Category:** This is a sample app. For this particular case, stream workers are used for real-time data extractionn and manipulation.
+
 ## Summary:
 
 The following code defines a stream worker application that ships needed items to a specific city. It reads data from a source table 'SourceTable', filters the items that need restocking, calculates the shipping amount, and then inserts the resulting data into a global table called 'OutputTable'.
