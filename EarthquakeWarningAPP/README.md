@@ -53,3 +53,30 @@ A consumer is created using the createConusmer function. This consumer reads
 data from the message stream and executes a query to find users who are near the
 earthquake location. An email is sent to these users using the sendEmail
 function.
+
+```
+User data example:
+{
+  "address": "1234 Main St, San Francisco, CA 94102",
+  "email": "ljubisav@example.com",
+  "location": [
+    37.6749,
+    -122.4194
+  ],
+  "name": "Luba",
+  "userId": "user001"
+}
+
+Sensore data example:
+{
+  "latitude": 37.7749,
+  "longitude": -122.4194,
+  "depth": 10,
+  "magnitude": 5.5,
+  "sensorId": "sensor001",
+  "sensorType": "seismograph",
+  "deviceId": "device001",
+  "deviceType": "IoT device"
+}
+
+```
