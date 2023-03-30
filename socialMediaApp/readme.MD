@@ -1,118 +1,55 @@
-Social Media App API
-This is a Python Flask API that simulates a social media platform, allowing users to create an account, sign in and out, create posts, like posts, view their own posts and view their feed.
+# MacroSocial
 
-Requirements
-The following Python packages are required:
+MacroSocial is a social media application that allows users to sign up, sign in, create posts, like posts, see their own posts (profile), and see a feed of posts from other users.
 
-Flask
-requests
-pandas
-json
-Configuration
-The following constants should be set before running the script:
+## Requirements
 
-URL: The URL of the server.
-HTTP_URL: The HTTP URL of the server.
-GEO_FABRIC: The name of the geo fabric.
-API_KEY: The API key for the server.
-USERS_COLLECTION: The name of the users collection.
-USERS_ONLINE_COLLECTION: The name of the online users collection.
-POSTS_COLLECTION: The name of the posts collection.
-API Endpoints
-POST /sign-up
-Create a new user.
+To use MacroSocial, you need to have the following:
 
-Request body:
+- Python 3.8 or later
+- Flask
+- Pandas
+- requests
 
-perl
-Copy code
-{
-  "email": "example@example.com",
-  "password": "password",
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      -74.0059,
-      40.7128
-    ]
-  }
-}
-POST /sign-in
-Sign in with an existing user.
+## Installation
 
-Request body:
+1. Clone this repository.
+2. Install the required packages with `pip install -r requirements.txt`.
+3. Create an account on https://console.macrometa.io/ and get your API key.
+4. Replace the `API_KEY` constant in the `app.py` file with your own API key.
 
-perl
-Copy code
-{
-  "email": "example@example.com",
-  "password": "password",
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      -74.0059,
-      40.7128
-    ]
-  }
-}
-DELETE /sign-out
-Sign out a user.
+## Usage
 
-Request body:
+To start the application, run `python app.py` in your terminal. By default, the application runs on port 5000.
 
-perl
-Copy code
-{
-  "email": "example@example.com"
-}
-POST /create-post
-Create a new post.
+### Endpoints
 
-Request body:
+MacroSocial has the following endpoints:
 
-perl
-Copy code
-{
-  "email": "example@example.com",
-  "post": "Hello, world!"
-}
-POST /like-post
-Like or unlike a post.
+#### `POST /sign-up`
 
-Request body:
+Endpoint to create a new user.
 
-perl
-Copy code
-{
-  "email": "example@example.com",
-  "post_id": "12345"
-}
-POST /profile
-View a user's own posts.
+#### `POST /sign-in`
 
-Request body:
+Endpoint for users to sign in.
 
-perl
-Copy code
-{
-  "email": "example@example.com"
-}
-POST /feed
-View a user's feed.
+#### `DELETE /sign-out`
 
-Request body:
+Endpoint for users to sign out.
 
-perl
-Copy code
-{
-  "email": "example@example.com",
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      -74.0059,
-      40.7128
-    ]
-  }
-}
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+#### `POST /create-post`
+
+Endpoint for users to create new posts.
+
+#### `POST /like-post`
+
+Endpoint for users to like posts.
+
+#### `POST /profile`
+
+Endpoint for users to see their own posts (profile).
+
+#### `POST /feed`
+
+Endpoint for users to see a feed of posts from other users.
