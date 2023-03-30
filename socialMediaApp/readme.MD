@@ -15,8 +15,8 @@ To use MacroSocial, you need to have the following:
 
 1. Clone this repository.
 2. Install the required packages with `pip install -r requirements.txt`.
-3. Create an account on https://console.macrometa.io/ and get your API key.
-4. Replace the `API_KEY` constant in the `app.py` file with your own API key.
+3. Create an account on https://api-play.paas.macrometa.io and get your API key.
+4. Replace the `API_KEY` constant in the `social.py` file with your own API key.
 
 ## Usage
 
