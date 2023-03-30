@@ -1,6 +1,6 @@
 ## Aggregating Inventory Levels by Brand
 
-**Category:** This is a sample app. For this particular case, stream workers are used for real-time data extractionn and manipulation.
+**Category:** This is a sample app. For this particular case, stream workers are used for real-time data extraction and manipulation.
 
 ## Summary:
 

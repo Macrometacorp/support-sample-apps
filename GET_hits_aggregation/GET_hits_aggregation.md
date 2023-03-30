@@ -1,6 +1,6 @@
 ## Aggregate GET hits from an IP address
 
-**Category:** This is a sample app. For this particular case, stream workers are used for real-time data extractionn and manipulation.
+**Category:** This is a sample app. For this particular case, stream workers are used for real-time data extraction and manipulation.
 
 ## Summary:
 The following code defines a stream worker application that aggregates the number of GET requests per IP address per day and stores the results in a destination collection.
