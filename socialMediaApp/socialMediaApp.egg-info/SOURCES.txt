@@ -1,0 +1,8 @@
+setup.py
+social/__init__.py
+social/social.py
+socialMediaApp.egg-info/PKG-INFO
+socialMediaApp.egg-info/SOURCES.txt
+socialMediaApp.egg-info/dependency_links.txt
+socialMediaApp.egg-info/requires.txt
+socialMediaApp.egg-info/top_level.txt

@@ -1,0 +1,118 @@
+Social Media App API
+This is a Python Flask API that simulates a social media platform, allowing users to create an account, sign in and out, create posts, like posts, view their own posts and view their feed.
+
+Requirements
+The following Python packages are required:
+
+Flask
+requests
+pandas
+json
+Configuration
+The following constants should be set before running the script:
+
+URL: The URL of the server.
+HTTP_URL: The HTTP URL of the server.
+GEO_FABRIC: The name of the geo fabric.
+API_KEY: The API key for the server.
+USERS_COLLECTION: The name of the users collection.
+USERS_ONLINE_COLLECTION: The name of the online users collection.
+POSTS_COLLECTION: The name of the posts collection.
+API Endpoints
+POST /sign-up
+Create a new user.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com",
+  "password": "password",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -74.0059,
+      40.7128
+    ]
+  }
+}
+POST /sign-in
+Sign in with an existing user.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com",
+  "password": "password",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -74.0059,
+      40.7128
+    ]
+  }
+}
+DELETE /sign-out
+Sign out a user.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com"
+}
+POST /create-post
+Create a new post.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com",
+  "post": "Hello, world!"
+}
+POST /like-post
+Like or unlike a post.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com",
+  "post_id": "12345"
+}
+POST /profile
+View a user's own posts.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com"
+}
+POST /feed
+View a user's feed.
+
+Request body:
+
+perl
+Copy code
+{
+  "email": "example@example.com",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      -74.0059,
+      40.7128
+    ]
+  }
+}
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
