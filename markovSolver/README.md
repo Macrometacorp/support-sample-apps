@@ -13,7 +13,7 @@ This Python script uses Flask to create an API for generating a Markov chain gra
 
 Before using this app, you must have a valid API key for [Macrometa](https://www.macrometa.com/) and update the `API_KEY` constant in the code.
 
-1. Start the Flask server by running `python3 <filename>.py` in the terminal.
+1. Start the Flask server by running `python3 markov_solver.py` in the terminal.
 2. Use the `generate-nodes` endpoint to generate a node collection from an initial state vector. This endpoint receives a PUT request with a JSON payload containing the `matrix` key and the initial state vector.
 3. Use the `generate-edges` endpoint to generate an edge collection from an input matrix. This endpoint receives a PUT request with a JSON payload containing the `matrix` key and the input matrix.
 4. Use the `get-nodes` and `get-edges` endpoints to view the resulting node and edge collections, respectively.
