@@ -32,7 +32,7 @@ Endpoint to create a new user.
 
 #### Example:
 
-curl -X POST -H "Content-type: application/json" -d "{\"email\": \"email@email.com\", \"password\": \"password\"}" http://127.0.0.1:5000/sign-up
+curl -X POST -H "Content-type: application/json" -d "{\\"email\\": \\"email@email.com\\", \\"password\\": \\"password\\"}" http://127.0.0.1:5000/sign-up
 
 #### `POST /sign-in`
 
