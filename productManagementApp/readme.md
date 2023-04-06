@@ -1,6 +1,6 @@
--- Define the application name and qlVersion. 
-@App:name("product-Management-app")
-@App:qlVersion("2")
+-- Define the application name and qlVersion. <br/>
+@App:name("product-Management-app") <br/>
+@App:qlVersion("2") <br/>
 
 -- Create a source that connects to a database and reads data from a collection named "transactions" in JSON format. It also sets the replication type as global.
 CREATE SOURCE TransactionsSource WITH (
