@@ -2,7 +2,7 @@
 @App:name("product-Management-app") <br/>
 @App:qlVersion("2") <br/>
 
--- Create a source that connects to a database and reads data from a collection named "transactions" in JSON format. It also sets the replication type as global. <br/>
+-- Create a source that connects to a database and reads data from a collection named "transactions" in JSON format. <br/>
 CREATE SOURCE TransactionsSource WITH (
 type = 'database',
 collection = "transactions",
