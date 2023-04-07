@@ -243,5 +243,65 @@ This is a project for an earthquake warning system.
 
 Streams, Query Workers, Stream Workers, Geo-Json
 
+## chatApp
+
+### Description
+
+A chat app using Macrometa Streams and Stream Workers.
+
+### Features
+
+Streams, Stream Workers
+
+## customer360
+
+### Description
+
+An interactive Macrometa customer database.
+
+### Features
+
+/
+
+## ecommerceApp
+
+### Description
+
+This is an E-commerce store built on a distributed GDN network with real-time stock updates.
+
+### Features
+
+Query Workers, Stream Workers, Search, Streams
+
+## flightsApp
+
+### Description
+
+This application is a simple web app for finding flights between airports using Macrometa's Geo-Distributed Database. It demonstrates how to interact with Macrometa's database using Node.js and Express to query graph data for shortest, non-stop, and two-stop flights based on price or distance.
+
+### Features
+
+Query Workers, Graphs
+
+## socialMediaApp
+
+### Description
+
+A social media application that allows users to sign up, sign in, create posts, like posts, see their own posts (profile), and see a feed of posts from other users.
+
+### Features
+
+Query Workers, Graphs
+
+## weatherApp
+
+### Description
+
+This is an IoT device management system built on a distributed GDN network with real-time updates
+
+### Features
+
+Query Workers, Stream Workers, Search, Streams
+
 ## Contributing
 Contributions are welcome! If you have a sample app you'd like to add to this repository, please submit a pull request.
