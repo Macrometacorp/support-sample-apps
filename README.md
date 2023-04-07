@@ -233,9 +233,15 @@ This project provides a simple script to reset a Macrometa fabric environment by
 ## Tier 3
 Tier 3 apps are the most advanced applications in this repository, incorporating more advanced programming concepts and techniques.
 
-## Apps
+## EarthquakeWarningAPP
 
-...
+### Description
+
+This is a project for an earthquake warning system.
+
+### Features
+
+Streams, Query Workers, Stream Workers, Geo-Json
 
 ## Contributing
 Contributions are welcome! If you have a sample app you'd like to add to this repository, please submit a pull request.
