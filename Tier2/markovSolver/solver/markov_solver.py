@@ -74,7 +74,7 @@ def generate_edges():
         for i, j in enumerate(row):
             payload = {
                 '_key': f'node_{column + 1}-node_{i+1}',
-                '_from': f'{NODES_COLLECTION}/node_{column+i}',
+                '_from': f'{NODES_COLLECTION}/node_{column+1}',
                 '_to': f'{NODES_COLLECTION}/node_{i+1}',
                 'weight': j
                 }
