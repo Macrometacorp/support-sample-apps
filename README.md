@@ -261,7 +261,7 @@ An interactive Macrometa customer database.
 
 ### Features
 
-Query Workers
+Query Workers, Streams, Stream Workers
 
 ## ecommerceApp
 
