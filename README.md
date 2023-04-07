@@ -291,7 +291,7 @@ A social media application that allows users to sign up, sign in, create posts, 
 
 ### Features
 
-Query Workers, Graphs
+Query Workers, Graphs, Geo-Json
 
 ## weatherApp
 
