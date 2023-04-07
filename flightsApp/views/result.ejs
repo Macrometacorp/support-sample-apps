@@ -5,23 +5,28 @@
             <main class="d-flex flex-nowrap">
                 <div class="container text-center p-3 ">
                     <h1 class="text-center">Welcome to Macrometa</h1>
-                    <% for( let index=0; index < message.length; index++ ) { %>
-                        <%=message[index].edge._from %>
+                    <% let price=dista=0 %>
+                        <% for( let index=0; index < message.length; index++ ) { %>
+                            <% price=price + message[index].edge.Price %>
+                                <% dista=dista + message[index].edge.Distance %>
 
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Flight from: <%= message[index].edge._from %>
-                                    </h5>
-                                    <h5 class="card-title">Flight to: <%= message[index].edge._to %>
-                                    </h5>
-                                    <p class="card-text">Price: <%= message[index].edge.Price%>
-                                    </p>
-                                    <p class="card-text">Distance: <%= message[index].edge.Distance %>
-                                    </p>
-                                </div>
-                            </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Flight from: <%= message[index].edge._from %>
+                                            </h5>
+                                            <h5 class="card-title">Flight to: <%= message[index].edge._to %>
+                                            </h5>
+                                            <p class="card-text">Price: <%= message[index].edge.Price%>
+                                            </p>
+                                            <p class="card-text">Distance: <%= message[index].edge.Distance %>
+                                            </p>
+                                        </div>
+                                    </div>
 
-                            <% } %>
+                                    <% } %>
+                                        <h5 class="card-title">Total Price: <%= price %>
+                                                <h5 class="card-title">Total Distance: <%= dista%>
+
             </main>
             <%- include('parts/footer.ejs') %>
     </body>

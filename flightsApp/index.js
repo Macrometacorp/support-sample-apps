@@ -59,26 +59,36 @@ app.post("/search", async (req, res) => {
         console.log(fcity, tcity, select);
         if (select == "Price" || select == "Distance") {
             const response = await shortest({ origin: fcity, destination: tcity, flight: process.env.GRAPH_NAME, select: select })
-            console.log(response);
             const filteredData = response.filter((item) => item.edge !== null);
 
             res.render("result", { message: filteredData });
 
         }
+        else if (select == "Non-stop") {
+            const response = await stops({ id: fcity, to: tcity, num: 1 })
+            const outputData = response[0].map((flight) => {
+                return {
+                    edge: flight,
+                };
+            });
+            res.render("result", { message: outputData });
 
-        // res.render("result", { message: [{ _key: "1" }, { _key: "2" }] });
-
+        }
+        else {
+            const response = await stops({ id: fcity, to: tcity, num: 2 })
+            const outputData = response[0].map((flight) => {
+                return {
+                    edge: flight,
+                };
+            });
+            res.render("result", { message: outputData });
+        }
     } catch (error) {
         // If an error occurs, log it to the console and send a 500 status code
         console.error(error);
         res.sendStatus(500);
     }
-    /*
-    Data example
-    {
-    "city": "New York"
-    }
-  */
+
 });
 
 app.all("*", (req, res) => {
