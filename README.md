@@ -170,9 +170,65 @@ Stream Workers
 ## Tier 2
 Tier 2 apps are more complex applications that showcase a wider range of programming concepts and techniques.
 
-## Apps
+## SampleStream
 
-...
+### Description
+
+This is a sample app that includes usage of the Python SDK. In this case, the SDK is used to manage a stream of messages between the user’s keyboard and the GDN.
+
+### Features
+
+Streams
+
+## accountMigrationScript
+
+### Description
+
+This script is intended for migration from GDN to PLAY platform.
+
+### Features
+
+/
+
+## exportGDNasJsonScript
+
+### Description
+
+This Node.js script connects to a Macrometa fabric and exports the collections, indexes, graphs, and RESTqls to JSON files. The script also pulls the data from the collections and exports it to separate JSON files. 
+
+### Features
+
+/
+
+## gdnVersionCheckScript
+
+### Description
+
+This Node.js script connects to a Macrometa fabric and retrieves the version information for each edge location.
+
+### Features
+
+/
+
+## markovSolver
+
+### Description
+
+This Python script uses Flask to create an API for generating a Markov chain graph from an input matrix and initial distribution vector. It also includes endpoints to view and manipulate the resulting node and edge collections.
+
+### Features
+
+Query Workers, Graphs
+
+## resetFabricScript
+
+### Description
+
+This project provides a simple script to reset a Macrometa fabric environment by deleting all collections, query workers, streams, stream workers, views, and graphs.
+
+### Features
+
+/
 
 ## Tier 3
 Tier 3 apps are the most advanced applications in this repository, incorporating more advanced programming concepts and techniques.
