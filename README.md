@@ -47,6 +47,126 @@ This is a Macrometa Stream Worker application that aggregates the number of GET 
 
 Stream Workers
 
+## GroceryStore
+
+### Description
+
+Macrometa Query Workers and Graphs are used to show item recommendations based on customer purchase history for a grocery store setting.
+
+### Features
+
+Query Workers, Graphs
+
+## HotelLocator
+
+### Description
+
+Macrometa Query Workers and Geo-location are used to find nearby hotels with available rooms.
+
+### Features
+
+Query Workers, Geo-JSON
+
+## MoviesRelationships
+
+### Description
+
+Macrometa Graphs and Query Workers are used to find relationships between movies in the Marvel Cinematic Universe (MCU).
+
+### Features
+
+Query Workers, Graphs
+
+## SWexamples
+
+### Description
+
+Macrometa Stream Worker query that updates different Stripe collections based on event types received from a database source. It uses a JavaScript function to map event types to collection names and inserts the data into the appropriate collection.
+
+### Features
+
+Query Workers
+
+## SearchByDates
+
+### Description
+
+Macrometa Query Workers are used for filtering data inside a collection.
+
+### Features
+
+Query Workers
+
+## SearchByPhrase
+
+### Description
+
+Macrometa Query Workers and Search are used for filtering data inside a collection.
+
+### Features
+
+Query Workers, Search
+
+## SearchProducts
+
+### Description
+
+Macrometa Query Workers and SEARCH are used to get the subset of the data inside a collection.
+
+### Features
+
+Query Workers, Search
+
+## StoreFulfillment
+
+### Description
+
+Macrometa Stream Worker application that ships needed items to a specific city.
+
+### Features
+
+Stream Workers
+
+## StoreInventory
+
+### Description
+
+Macrometa Stream Worker application that aggregates the inventory levels for each brand in the 'catalog' collection and stores the results in a destination collection.
+
+### Features
+
+Stream Workers
+
+## fleetManagementApp
+
+### Description
+
+The Real-time Fleet Management System aims to provide businesses with an efficient way to manage and monitor their vehicles, optimize routing based on traffic conditions, and track vehicle statuses. The application leverages Macrometa's GDN geospatial GeoJSON feature for accurate mapping and real-time updates.
+
+### Features
+
+Query Workers, Geo-JSON
+
+## geoNewsAggregator
+
+### Description
+
+A news aggregator that collects and organizes news articles based on user location, allowing them to access local news and events easily.
+
+### Features
+
+Query Workers, Geo-JSON
+
+## productManagementApp
+
+### Description
+
+Macrometa Stream Worker to track when items are sold, repaired or returned.
+
+### Features
+
+Stream Workers
+
 ## Tier 2
 Tier 2 apps are more complex applications that showcase a wider range of programming concepts and techniques.
 
