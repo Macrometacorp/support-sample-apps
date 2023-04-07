@@ -45,7 +45,7 @@ This is a Macrometa Stream Worker application that aggregates the number of GET 
 
 ### Features
 
-Stream Workers
+Streams, Stream Workers
 
 ## GroceryStore
 
@@ -125,7 +125,7 @@ Macrometa Stream Worker application that ships needed items to a specific city.
 
 ### Features
 
-Stream Workers
+Streams, Stream Workers
 
 ## StoreInventory
 
@@ -165,7 +165,7 @@ Macrometa Stream Worker to track when items are sold, repaired or returned.
 
 ### Features
 
-Stream Workers
+Streams, Stream Workers
 
 ## Tier 2
 Tier 2 apps are more complex applications that showcase a wider range of programming concepts and techniques.
