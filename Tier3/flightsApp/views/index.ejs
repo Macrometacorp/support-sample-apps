@@ -1,0 +1,61 @@
+<%- include('parts/head.ejs') %>
+
+    <body class="bg-light text-dark container text-center p-3 ">
+        <%- include('parts/header.ejs',{session:"Ljubisav"}) %>
+            <main class="d-flex flex-nowrap">
+                <div class="container text-center p-3 ">
+                    <h1 class="text-center">Welcome to Macrometa</h1>
+                    <div class=" text-center p-3">
+                        <h3>Please enter follwing info to get avaiable flights</h3>
+                        <form class="form-inline" action="/search" method="post" enctype="application/json">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-2 col-sm-6 mb-2">
+                                        <input type="text" class="form-control" placeholder="From_City"
+                                            aria-label="From_City" aria-describedby="button-addon1" name="fcity"
+                                            id="fcity" required />
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 mb-2">
+                                        <input type="text" class="form-control" placeholder="To_City"
+                                            aria-label="To_City" aria-describedby="button-addon1" name="tcity"
+                                            id="tcity" required />
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 mb-2">
+                                        <select class="form-select" aria-label="Default select example" name="select"
+                                            id="select" required>
+                                            <option value="Price">Price</option>
+                                            <option value="Distance">Distance</option>
+                                            <option value="Non-stop">Non-stop Flight</option>
+                                            <option value="With-stops">Single Stop Flight</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 mb-2">
+                                        <button class="btn btn-primary" type="submit" id="button-addon1"
+                                            data-mdb-ripple-color="dark">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="container d-flex justify-content-center">
+                        <div class="col-5">
+
+                            <h1 class="my-4">Available Airports</h1>
+                            <ul class="list-group">
+                                <% for( let index=0; index < airports.length; index++ ) { %>
+                                    <li class="list-group-item">Airport ID: <%=airports[index]._key %>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('parts/footer.ejs') %>
+    </body>
+
+    </html>
