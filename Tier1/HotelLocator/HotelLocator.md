@@ -12,7 +12,7 @@ The solution is designed to help users find suitable accommodation options that 
 
 ```sql
 FOR hotel IN hotels
-  LET distance = GEO_DISTANCE(GEO_POINT(@longitude, @latitude), GEO_POINT(hotel.location.coordinates[0], hotel.location.coordinates[1])) / 1609.34
+  LET distance = GEO_DISTANCE(GEO_POINT(@longitude, @latitude), GEO_POINT(hotel.location.coordinates[1], hotel.location.coordinates[0])) / 1609.34
   FILTER distance <= @radius
   FOR room IN hotel.rooms
     FILTER room.quantity > 0 AND room.max_days >= @days

@@ -16,7 +16,7 @@ This document outlines a comprehensive method for filtering charging stations by
 ```sql
 FOR station IN chargerLocations
   FILTER station.type == @type AND
-         GEO_DISTANCE(GEO_POINT(station.location.coordinates[0], station.location.coordinates[1]), GEO_POINT(@latitude, @longitude)) < @radius
+         GEO_DISTANCE(GEO_POINT(station.location.coordinates[1], station.location.coordinates[0]), GEO_POINT(@longitude, @latitude)) < @radius
   RETURN station
 ```
 
