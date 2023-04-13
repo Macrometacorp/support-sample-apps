@@ -13,10 +13,10 @@ The solution is designed to help users find suitable accommodation options that 
 ```sql
 FOR hotel IN hotels
   LET distance = GEO_DISTANCE(GEO_POINT(@longitude, @latitude), GEO_POINT(hotel.location.coordinates[0], hotel.location.coordinates[1])) / 1609.34
-  FILTER distance < @radius
+  FILTER distance <= @radius
   FOR room IN hotel.rooms
     FILTER room.quantity > 0 AND room.max_days >= @days
-    SORT distance ASC, hotel.price ASC
+    SORT distance ASC, room.price ASC
     RETURN {hotel: hotel.name, distance, room}
 ```
 
@@ -314,12 +314,16 @@ FOR hotel IN hotels
 The input data is a list of hotels, where each hotel object contains the following attributes:
 
 - **name:** The name of the hotel, which is a string representing the official name of the establishment.
-- **location:** An object containing the geographic coordinates (latitude and longitude) of the hotel, used to calculate the distance between the hotel and the desired location.
+- **brand:** The brand of the hotel, which is a string representing the hotel chain or group.
+- **location:** An object containing the following attributes:
+    - **city:** The city where the hotel is located, represented as a string.
+    - **state:** The state where the hotel is located, represented as a string.
+    - **coordinates:** An array containing the geographic coordinates (latitude and longitude) of the hotel, used to calculate the distance between the hotel and the desired location. The coordinates are represented as [latitude, longitude].
 - **rooms:** A list of room objects, each with the following attributes:
     - **type:** The type of the room, represented as a string (e.g., Standard, Deluxe, Suite). This attribute helps users differentiate between various room categories and their respective amenities.
     - **quantity:** The number of available rooms of this type, expressed as an integer. This value should be greater than 0 for a room to be considered available.
     - **max_days:** The maximum number of days the room can be booked. As various rooms within the same category may have a different amount of available days, this value reflects the number of days of the room with the max value. This attribute allows users to filter rooms based on the length of their intended stay.
-    - **price:** The price of the room, expressed as a decimal value. This attribute helps users compare different room options based on their budget.
+    - price: The price of the room, expressed as a decimal value. This attribute helps users compare different room options based on their budget.
 
 ## Detailed Explanation
 

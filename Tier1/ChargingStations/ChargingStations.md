@@ -33,8 +33,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Shell",
         "location": {
             "coordinates": [
-                -97.74306,
-                 30.26715
+                30.26715,
+                -97.74306
             ],
             "city": "Austin",
             "state": "TX"
@@ -45,8 +45,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Exxon",
         "location": {
             "coordinates": [
-                -96.800451,
-                32.780952
+                32.780952, 
+                -96.800451
             ],
             "city": "Dallas",
             "state": "TX"
@@ -57,8 +57,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Chevron",
         "location": {
             "coordinates": [
-                -117.914503,
-                33.812097
+                33.812097,
+                -117.914503
             ],
             "city": "Los Angeles",
             "state": "CA"
@@ -69,8 +69,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "BP",
         "location": {
             "coordinates": [
-                -122.333953,
-                47.606209
+                47.606209,
+                -122.333953
             ],
             "city": "Seattle",
             "state": "WA"
@@ -81,8 +81,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Mobil",
         "location": {
             "coordinates": [
-                -73.985428,
-                40.748817
+                40.748817,
+                -73.985428
             ],
             "city": "New York City",
             "state": "NY"
@@ -93,8 +93,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Tesla",
         "location": {
             "coordinates": [
-                -122.143019,
-                37.441883
+                37.441883,
+                -122.143019
             ],
             "city": "San Francisco",
             "state": "CA"
@@ -105,8 +105,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "ChargePoint",
         "location": {
             "coordinates": [
-                -122.322698,
-                47.616259
+                47.616259,
+                -122.322698
             ],
             "city": "Seattle",
             "state": "WA"
@@ -117,8 +117,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "EVgo",
         "location": {
             "coordinates": [
-                -118.407985,
-                34.116119
+                34.116119,
+                -118.407985
             ],
             "city": "Los Angeles",
             "state": "CA"
@@ -129,8 +129,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Blink",
         "location": {
             "coordinates": [
-                -81.690634,
-                41.49932
+                41.49932,
+                -81.690634
             ],
             "city": "Cleveland",
             "state": "OH"
@@ -141,8 +141,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Volta",
         "location": {
             "coordinates": [
-                -122.334457,
-                47.606209
+                47.606209,
+                -122.334457
             ],
         "city": "Seattle",
         "state": "WA"
@@ -152,8 +152,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Exxon",
         "location": {
             "coordinates": [
-                -77.0366,
-                38.8977
+                38.8977,
+                -77.0366
             ],
             "city": "Washington",
             "state": "DC"
@@ -164,8 +164,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Shell",
         "location": {
             "coordinates": [
-                -118.4132,
-                33.9803
+                33.9803,
+                -118.4132
             ],
             "city": "Los Angeles",
             "state": "CA"
@@ -176,8 +176,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "BP",
         "location": {
             "coordinates": [
-                -87.6847,
-                41.8369
+                41.8369,
+                -87.6847
             ],
             "city": "Chicago",
             "state": "IL"
@@ -188,8 +188,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Mobil",
         "location": {
             "coordinates": [
-                -75.1652,
-                39.9526
+                39.9526,
+                -75.1652
             ],
             "city": "Philadelphia",
             "state": "PA"
@@ -200,8 +200,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Chevron",
         "location": {
             "coordinates": [
-                -122.4194,
-                37.7749
+                37.7749,
+                -122.4194
             ],
             "city": "San Francisco",
             "state": "CA"
@@ -212,8 +212,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Tesla",
         "location": {
             "coordinates": [
-                -96.8392,
-                32.9428
+                32.9428,
+                -96.8392
             ],
             "city": "Dallas",
             "state": "TX"
@@ -224,8 +224,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "ChargePoint",
         "location": {
             "coordinates": [
-                -71.0636,
-                42.3584
+                42.3584,
+                -71.0636
             ],
             "city": "Boston",
             "state": "MA"
@@ -236,8 +236,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "EVgo",
         "location": {
             "coordinates": [
-                -118.2437,
-                34.0522
+                34.0522,
+                -118.2437
             ],
             "city": "Los Angeles",
             "state": "CA"
@@ -248,8 +248,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "Blink",
         "location": {
             "coordinates": [
-                -122.3321,
-                47.6062
+                47.6062,
+                -122.3321
             ],
             "city": "Seattle",
             "state": "WA"
@@ -260,8 +260,8 @@ The input data is provided in JSON format, containing detailed information about
         "brand": "SemaConnect",
         "location": {
             "coordinates": [
-                -77.0366,
-                38.8977
+                38.8977,
+                -77.0366
             ],
             "city": "Washington",
             "state": "DC"
