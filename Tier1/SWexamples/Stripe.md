@@ -1,8 +1,8 @@
 @App:name("StripeSW")
 @App:description("Update Stripe collections")
 @App:qlVersion("2")
-CREATE SOURCE StripeEvents WITH (type = 'database', collection = "StripeEvents", collection.type="doc" , replication.type="global", map.type='json') (type string, data object);
 
+CREATE SOURCE StripeEvents WITH (type = 'database', collection = "StripeEvents", collection.type="doc" , replication.type="global", map.type='json') (type string, data object);
 
 CREATE SINK StripeQW WITH (type='query-worker', query.worker.name="StripeQW")(`@col` string ,data object );
 

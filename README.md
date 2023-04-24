@@ -85,7 +85,7 @@ Macrometa Stream Worker query that updates different Stripe collections based on
 
 ### Features
 
-Query Workers
+Stream Workers
 
 ## SearchByDates
 
