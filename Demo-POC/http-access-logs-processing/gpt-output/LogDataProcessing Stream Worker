@@ -1,0 +1,13 @@
+-- Metadata
+@App:name("LogDataProcessing")
+@App:description("Parse log lines into JSON documents and store them in a dedicated collection")
+@App:qlVersion("2")
+
+-- Definition
+CREATE STREAM InputStream (log_data string);
+CREATE STORE LogData WITH (type='database', collection='LogData', collection.type='doc', replication.type='global', map.type='json') (log_data string);
+
+-- Logic
+INSERT INTO LogData
+SELECT log_data
+FROM InputStream

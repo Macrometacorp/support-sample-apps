@@ -1,0 +1,13 @@
+-- Metadata
+@App:name("LogDataAggregation")
+@App:description("Aggregate log data at configurable time intervals")
+@App:qlVersion("2")
+
+-- Definition
+CREATE SOURCE LogData WITH (type='database', collection='LogData', collection.type='doc', replication.type='global', map.type='json') (log_data string);
+CREATE STORE AggregatedData WITH (type='database', collection='AGGREGATED_LOG_DATA', collection.type='doc', replication.type='global', map.type='json') (timestamp string, ip_address string, method string, status string);
+
+-- Logic
+INSERT INTO AggregatedData
+SELECT str:substr(log_data, '\d{2}/[A-Za-z]{3}/\d{4}:\d{2}:\d{2}:\d{2}') AS timestamp, str:substr(log_data, '\d{1,3}[\s\S]\d{1,3}[\s\S]\d{1,3}[\s\S]\d{1,3}') AS ip_address, str:substr(log_data, '[A-Z]{3,6} ') AS method, str:substr(log_data, ' \d{3} ') AS status
+FROM LogData WINDOW UNIQUE:time(log_data, 1 sec)
