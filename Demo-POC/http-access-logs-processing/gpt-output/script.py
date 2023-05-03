@@ -13,15 +13,12 @@ PRODUCER = CLIENT.create_stream_producer(STREAM_NAME, local=True)
 
 # Read HTTP access logs
 with open(FILE_PATH, 'r') as file:
-    logs = file.readlines()
+    logs = file.readlines()[0:500]
 
 # Process logs in batches of 100 lines
 batch_size = 100
 for i in range(0, len(logs), batch_size):
     batch = logs[i:i + batch_size]
     messages = [{"log_data": log.strip()} for log in batch]
-
-    # Publish batch to the GDN stream
-    for message in messages:
-        PRODUCER.send(json.dumps(message))
-        time.sleep(1)
+    PRODUCER.send(json.dumps(messages))
+    time.sleep(1)
