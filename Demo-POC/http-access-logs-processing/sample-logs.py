@@ -1,5 +1,6 @@
 import random
 import time
+from datetime import datetime, timedelta
 
 # List of HTTP methods to choose from
 http_methods = ['GET', 'POST', 'PUT', 'DELETE']
@@ -30,6 +31,16 @@ urls = ['/cgi-bin/try/',
         '/dashboard',
         '/profile']
 
+# Function to generate a random timestamp within a week period
+def generate_random_timestamp():
+    now = datetime.now()
+    delta = timedelta(weeks=1)
+    start = now - delta
+    seconds_diff = (now - start).total_seconds()
+    random_seconds = random.uniform(0, seconds_diff)
+    random_timestamp = start + timedelta(seconds=random_seconds)
+    return random_timestamp.strftime('[%d/%b/%Y:%H:%M:%S %z]')
+
 # Prompt user for the number of logs to generate
 num_logs = int(input('Enter the number of logs to generate: '))
 
@@ -40,8 +51,8 @@ with open('access.log', 'w') as f:
         # Generate a random IP address
         ip_address = '{}.{}.{}.{}'.format(*[random.randint(0, 255) for _ in range(4)])
         
-        # Generate a random timestamp
-        timestamp = time.strftime('[%d/%b/%Y:%H:%M:%S %z]')
+        # Generate a random timestamp within a week period
+        timestamp = generate_random_timestamp()
         
         # Choose a random HTTP method and URL
         http_method = random.choice(http_methods)
