@@ -1,0 +1,4 @@
+FOR data IN AGGREGATED_LOG_DATA
+      AND data.timestamp >= @startTime
+      AND data.timestamp <= @endTime
+      RETURN data

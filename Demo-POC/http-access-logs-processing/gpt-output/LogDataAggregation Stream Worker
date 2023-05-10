@@ -1,0 +1,13 @@
+-- Metadata
+@App:name("LogDataAggregation")
+@App:description("Aggregate log data at configurable time intervals")
+@App:qlVersion("2")
+
+-- Definition
+CREATE SOURCE LogData WITH (type='database', collection='LogData', collection.type='doc', replication.type='global', map.type='json') (timestamp string, ip_address string, method string, status int);
+CREATE STORE AggregatedData WITH (type='database', collection='AGGREGATED_LOG_DATA', collection.type='doc', replication.type='global', map.type='json') (method string, count long);
+
+-- Logic
+INSERT INTO AggregatedData
+SELECT method, count(method) as count
+FROM LogData
