@@ -1,19 +1,28 @@
-### Stream Worker Definition to parse logs published on GDN stream.
+## Stream Worker Definition to parse logs published on GDN stream.
 
+## Overview
+
+This stream worker receives logs from the python client in batches of 100. Each batch is published on a stream on the GDN. The stream worker below consumes that stream and uses a custom script function to parse the each log line as a JSON object. Since the function returns an array object we use a Query Worker SINK to iterate over the array values and insert them into the collection.
+
+### Query Worker Code
 ```sql
-@App:name("accessLogsParsingWorker")
+FOR i in @array
+insert i into T1
+```
+
+### Stream Worker Code
+``` sql
+@App:name("L1")
 @App:description("Process and store HTTP access logs")
 @App:qlVersion("2")
 
--- Definition --
+-- Definition
+CREATE SOURCE HTTP_logs_source_stream WITH (type='stream', stream.list='HTTP_logs_source_stream', map.type='json', replication.type='global') (payload object);
 
--- Create source stream to publish batches of access logs from external python client.
-CREATE SOURCE access_logs_source_stream WITH (type='stream', stream.list='access_logs_source_stream', map.type='json', replication.type='global') (payload object);
+CREATE SINK HTTP_logs_sink_stream WITH (type='stream', stream='HTTP_logs_sink_stream', map.type='json', replication.type='global') (array object);
 
--- Create query worker SINK to insert access jog objects from array output from custom script function.
-CREATE SINK QW WITH (type='query-worker', query.worker.name="insertLogData") (array object);
-
--- JavaScript Function to recieve messages pusblished from stream, parse each log line, create a JSON object, and add to array.
+CREATE SINK QW WITH (type='query-worker', query.worker.name="QW1") (array object);
+-- JavaScript Function
 CREATE FUNCTION parseLogs[javascript] return object {
 
     var logEntries =data[0];
@@ -51,9 +60,8 @@ CREATE FUNCTION parseLogs[javascript] return object {
     return logObjects;
 
 };
--- Logic 
--- Use Query Worker to iterate over array of objects and insert them into the target table.
+-- Logic
 INSERT INTO QW
 SELECT parseLogs(payload) as array
-FROM access_logs_source_stream;
+FROM HTTP_logs_source_stream;
 ```
