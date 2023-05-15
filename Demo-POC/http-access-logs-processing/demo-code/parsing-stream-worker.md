@@ -12,21 +12,21 @@ insert i into T1
 
 ### Stream Worker Code
 ``` sql
-@App:name("L1")
+@App:name("AccessLog_Processing")
 @App:description("Process and store HTTP access logs")
 @App:qlVersion("2")
 
 -- Definition
-CREATE SOURCE HTTP_logs_source_stream WITH (type='stream', stream.list='access_logs_source_stream', map.type='json', replication.type='global') (payload object);
+CREATE SOURCE access_logs_source_stream WITH (type='stream', stream.list='access_logs_source_stream', map.type='json', replication.type='global') (payload object);
 
-CREATE SINK HTTP_logs_sink_stream WITH (type='stream', stream='HTTP_logs_sink_stream', map.type='json', replication.type='global') (array object);
+CREATE SINK HTTP_logs_sink_collection WITH (type='query-worker', query.worker.name="insertLogData") (array object);
 
-CREATE SINK QW WITH (type='query-worker', query.worker.name="insertLogData") (array object);
+
 -- JavaScript Function
 CREATE FUNCTION parseLogs[javascript] return object {
 
     var logEntries =data[0];
-    var logPattern = /^([\d.]+)\s+-\s+-\s+\[([^\]]+)\]\s+"([^"]+)"\s+(\d+)\s+(\d+)/;
+    var logPattern = /^([\d.]+)\s+-\s+-\s+\[([^\]]+)\]\s+"([^"]+)"\s+(\d+)\s+(\d+)/; //"
     var logObjects = [];
     for (var i = 0; i < logEntries.length; i++) {
         var match = logEntries[i].match(logPattern);
@@ -60,8 +60,10 @@ CREATE FUNCTION parseLogs[javascript] return object {
     return logObjects;
 
 };
+
+
 -- Logic
-INSERT INTO QW
+INSERT INTO HTTP_logs_sink_collection
 SELECT parseLogs(payload) as array
 FROM access_logs_source_stream;
 ```
