@@ -5,9 +5,11 @@
 This stream worker receives logs from the python client in batches of 100. Each batch is published on a stream on the GDN. The stream worker below consumes that stream and uses a custom script function to parse the each log line as a JSON object. Since the function returns an array object we use a Query Worker SINK to iterate over the array values and insert them into the collection.
 
 ### Query Worker Code
+
+The name of the query worker must be: `QW_HTTP_logs_sink_collection`.
 ```sql
 FOR i in @array
-insert i into T1
+insert i into AccessLog
 ```
 
 ### Stream Worker Code
@@ -16,11 +18,11 @@ insert i into T1
 @App:description("Process and store HTTP access logs")
 @App:qlVersion("2")
 
+
 -- Definition
 CREATE SOURCE access_logs_source_stream WITH (type='stream', stream.list='access_logs_source_stream', map.type='json', replication.type='global') (payload object);
 
 CREATE SINK HTTP_logs_sink_collection WITH (type='query-worker', query.worker.name="insertLogData") (array object);
-
 
 -- JavaScript Function
 CREATE FUNCTION parseLogs[javascript] return object {
@@ -60,7 +62,6 @@ CREATE FUNCTION parseLogs[javascript] return object {
     return logObjects;
 
 };
-
 
 -- Logic
 INSERT INTO HTTP_logs_sink_collection

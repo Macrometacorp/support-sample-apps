@@ -1,4 +1,10 @@
 ### Stream worker for aggregating access log data from httpAccessLogs collection
+
+## Overview
+
+This stream worker takes logs from the AccessLog collection. The logs are added into a named window that separates the events per minute and then aggregates them before saving the result in the `AccessLog` collection.
+
+### Stream Worker Code
 ```sql
 @App:name("AccessLog_Aggregation")
 @App:description("This app will produce aggregated message with a count of calls per method")
