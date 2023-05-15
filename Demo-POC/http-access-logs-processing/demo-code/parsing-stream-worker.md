@@ -17,11 +17,11 @@ insert i into T1
 @App:qlVersion("2")
 
 -- Definition
-CREATE SOURCE HTTP_logs_source_stream WITH (type='stream', stream.list='HTTP_logs_source_stream', map.type='json', replication.type='global') (payload object);
+CREATE SOURCE HTTP_logs_source_stream WITH (type='stream', stream.list='access_logs_source_stream', map.type='json', replication.type='global') (payload object);
 
 CREATE SINK HTTP_logs_sink_stream WITH (type='stream', stream='HTTP_logs_sink_stream', map.type='json', replication.type='global') (array object);
 
-CREATE SINK QW WITH (type='query-worker', query.worker.name="QW1") (array object);
+CREATE SINK QW WITH (type='query-worker', query.worker.name="insertLogData") (array object);
 -- JavaScript Function
 CREATE FUNCTION parseLogs[javascript] return object {
 
@@ -63,5 +63,5 @@ CREATE FUNCTION parseLogs[javascript] return object {
 -- Logic
 INSERT INTO QW
 SELECT parseLogs(payload) as array
-FROM HTTP_logs_source_stream;
+FROM access_logs_source_stream;
 ```
