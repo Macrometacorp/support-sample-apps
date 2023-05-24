@@ -1,3 +1,5 @@
+## Sample
+
 let notEmpty = (CHAR_LENGTH(@val) > 0 ? true : false)
 
 let ifNull =

@@ -1,3 +1,5 @@
+## Sample
+
 RETURN UNION(
 FOR doc1 IN @@searchview1 SEARCH PHRASE(doc1.name, @term1, "texten")
 RETURN doc1,

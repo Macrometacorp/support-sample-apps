@@ -1,0 +1,17 @@
+## Sample
+
+LET documents = [
+  { "name": "test"," gender": "f", "status": "active", "type": "user" },
+  { "name": "dummy", "gender": "m", "status": "inactive", "type": "unknown", "magicFlag": 23 }
+]
+
+FOR doc IN documents
+  LET attributes = (
+    FOR name IN ATTRIBUTES(doc)
+      FILTER LIKE(name, '%a%')
+      RETURN {
+        name: CONCAT(doc.name, '-', name),
+        value: doc[name]
+      }
+  )
+  RETURN ZIP(attributes[*].name, attributes[*].value)
